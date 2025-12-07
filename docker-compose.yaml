@@ -1,0 +1,9 @@
+version: '3.8'
+
+services:
+  telegram-chat-parsing-service:
+    build:
+      context: .
+    restart: on-failure
+    ports:
+      - "8080:8080"

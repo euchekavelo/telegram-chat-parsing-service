@@ -1,0 +1,6 @@
+spring:
+  application:
+    name: telegram-chat-parsing-service
+  threads:
+    virtual:
+      enabled: true

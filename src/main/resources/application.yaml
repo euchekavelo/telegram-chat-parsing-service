@@ -4,7 +4,8 @@ spring:
   threads:
     virtual:
       enabled: true
-  servlet:
-    multipart:
-      max-request-size: 500MB
-      max-file-size: 500MB
+
+
+telegram:
+  bot:
+    token: 8289757095:AAEKKs5LQZvbWJVSM9Fn-DTgQ5OT-kw_PHc

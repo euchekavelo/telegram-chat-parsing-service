@@ -49,6 +49,8 @@ git clone https://github.com/euchekavelo/telegram-chat-parsing-service.git
 docker-compose up -d
 ```
 
+3. Начните взаимодействовать с ботом [@hakmephi_bot](https://t.me/hakmephi_bot).
+
 
 ## 📋 Инструкция для пользователя 
 1. Откройте Telegram Desktop и перейдите в нужный чат.

@@ -45,7 +45,7 @@
 git clone https://github.com/euchekavelo/telegram-chat-parsing-service.git 
 ```
 
-2. Перейдите в папку проекта и в файле ***app.env*** установить значение токена для переменной **TELEGRAM_BOT_TOKEN**.
+2. Перейдите в папку проекта и в файле ***app.env*** установите значение токена для переменной **TELEGRAM_BOT_TOKEN**.
 
 3. Находясь в папке проекта, запустите Docker-контейнер приложения:
 ```bash

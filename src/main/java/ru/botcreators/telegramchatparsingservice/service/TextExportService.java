@@ -14,13 +14,15 @@ public class TextExportService {
         int total = users == null ? 0 : users.size();
 
         StringBuilder sb = new StringBuilder();
-        sb.append("Найдено пользователей: ").append(total).append("\n\n");
+        sb.append("Найдено явных пользователей и упоминаний: ").append(total).append("\n");
 
         if (users == null || users.isEmpty()) {
             sb.append("Ничего не найдено (в истории нет авторов/упоминаний).");
             return sb.toString();
         }
 
+        int numberOfUsers = 0;
+        int numberOfMentions = 0;
         int i = 1;
         for (UserRecord u : users) {
             String handle = normUsername(u.getUsername());
@@ -29,11 +31,14 @@ public class TextExportService {
             String line;
             if (handle != null && !handle.isBlank()) {
                 line = i + ". " + handle + (name.isBlank() ? "" : " — " + name);
+                numberOfMentions++;
             } else {
                 line = i + ". " + (name.isBlank() ? "(без username)" : name);
+                numberOfUsers++;
             }
 
             if (sb.length() + line.length() + 1 > TELEGRAM_MAX_LEN) {
+                addStatisticsDetails(sb, numberOfUsers, numberOfMentions);
                 sb.append("\n…сообщение обрезано из-за лимита Telegram. Для полного списка сформируйте Excel.");
                 break;
             }
@@ -41,6 +46,8 @@ public class TextExportService {
             sb.append(line).append("\n");
             i++;
         }
+
+        addStatisticsDetails(sb, numberOfUsers, numberOfMentions);
 
         return sb.toString().trim();
     }
@@ -54,5 +61,15 @@ public class TextExportService {
 
     private String safe(String s) {
         return s == null ? "" : s;
+    }
+
+    private void addStatisticsDetails(StringBuilder sb, int numberOfUsers, int numberOfMentions) {
+        StringBuilder statisticsDetails = new StringBuilder();
+        statisticsDetails.append("Явных пользователей: ").append(numberOfUsers).append("\n");
+        statisticsDetails.append("Упоминаний: ").append(numberOfMentions).append("\n\n");
+
+        int insertIndex = sb.indexOf("\n");
+
+        sb.insert(insertIndex + 1, statisticsDetails);
     }
 }

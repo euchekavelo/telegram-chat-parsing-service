@@ -64,7 +64,7 @@ docker-compose up -d
 
 
 ## 👨‍💻 Над проектом работали и работают
-* [pasom-creator](https://github.com/pasom-creator) — Team Leader/Backend Developer
+* [pasom-creator](https://github.com/pasom-creator) — Team Leader/Backend Developer ([Telegram-bot UI](https://github.com/pasom-creator/Simple_TG_UI))
 * [euchekavelo](https://github.com/euchekavelo) — Backend Developer
 * [rubtsov-oleg](https://github.com/rubtsov-oleg) — Backend Developer
 * [KlimovMaksim](https://github.com/KlimovMaksim) — Backend Developer
